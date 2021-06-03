@@ -48,6 +48,7 @@
     <Content Include="NeuralNetStudioExcelManifest\NeuralNetStudioExcel.xml">
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
     </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeuralNetStudioExcelWeb\NeuralNetStudioExcelWeb.csproj">
@@ -59,6 +60,9 @@
       <RoleName>NeuralNetStudioExcelWeb</RoleName>
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
