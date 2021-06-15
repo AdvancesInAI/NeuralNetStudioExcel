@@ -1,81 +1,101 @@
 import * as React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Header } from "./Header";
 import { WelcomePage } from "./WelcomePage";
 import Progress from "./Progress";
+import { setAuthAndHomeForm } from "../store/formStore";
+import { Fabric, Overlay } from "office-ui-fabric-react";
+import { AppScreen, IFormState } from "../store/appTypes";
+import { RootState } from "../store/store";
 // images references in the manifest
-import "../../../assets/icon-16.png";
-import "../../../assets/icon-32.png";
-import "../../../assets/icon-80.png";
-/* global console, Excel  */
+// import "../../../assets/icon-16.png";
+// import "../../../assets/icon-32.png";
+// import "../../../assets/icon-80.png";
+/* global console */
+// /* global console, Excel  */
+// /* global console, Excel  */
 
 export interface AppProps {
   title: string;
   isOfficeInitialized: boolean;
 }
 
-export default class App extends React.Component<AppProps> {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      listItems: [],
-    };
-  }
+export const App: React.FC<AppProps> = (_prop: AppProps) => {
+  const dispatch = useDispatch();
+  const formState = useSelector((state: RootState) => state.form) as IFormState;
 
-  componentDidMount() {
-    this.setState({
-      listItems: [
-        {
-          icon: "Ribbon",
-          primaryText: "Achieve more with Office integration",
-        },
-        {
-          icon: "Unlock",
-          primaryText: "Unlock features and functionality",
-        },
-        {
-          icon: "Design",
-          primaryText: "Create and visualize like a pro",
-        },
-      ],
-    });
-  }
+  console.log("init");
 
-  click = async () => {
-    try {
-      await Excel.run(async (context) => {
-        /**
-         * Insert your Excel code here
-         */
-        const range = context.workbook.getSelectedRange();
+  //load init data
+  useEffect(() => {
+    console.log("load init data");
+    fetchInitData();
+  }, []);
 
-        // Read the range address
-        range.load("address");
+  //Check auth and load data
+  const fetchInitData = async () => {
+    dispatch(setAuthAndHomeForm());
 
-        // Update the fill color
-        range.format.fill.color = "yellow";
-
-        await context.sync();
-        console.log(`The range address was ${range.address}.`);
-      });
-    } catch (error) {
-      console.error(error);
-    }
+    // const api = "/api/load/";
+    // try {
+    //   const response = await fetch(api);
+    //   const dataText = await response.json();
+    //   if (response.status === 200) {
+    //     dispatch(setInitAndHomeForm());
+    //   } else {
+    //     if (dataText) console.log(dataText);
+    //     dispatch(setErrorMessage("SERVER ERROR"));
+    //   }
+    // } catch (error) {
+    //   console.log("catch fetchInitData");
+    //   if (error) console.log(error);
+    //   dispatch(setErrorMessage("SERVER ERROR"));
+    // }
   };
 
-  render() {
-    const { title, isOfficeInitialized } = this.props;
+  if (!_prop.isOfficeInitialized) {
+    return <Progress message="Please sideload your addin to see app body." />;
+  }
 
-    if (!isOfficeInitialized) {
-      return (
-        <Progress title={title} logo="assets/logo-filled.png" message="Please sideload your addin to see app body." />
-      );
+  const getScreenBytext = (screen: AppScreen) => {
+    if (!formState.isInitCalled) {
+      return null;
     }
 
-    return (
-      <div className="ms-welcome">
+    if (screen == "home") {
+      return <WelcomePage></WelcomePage>;
+    } else if (screen == "auth") {
+      return <WelcomePage></WelcomePage>;
+    }
+
+    return null;
+  };
+
+  const screen = getScreenBytext(formState.appScreen);
+
+  return (
+    <Fabric>
+      <div className="sidebar top">
         <Header />
-        <WelcomePage />
       </div>
-    );
-  }
-}
+      <div className="sidebar content">{screen}</div>
+      {formState.isBusy && (
+        <Overlay>
+          <div
+            style={{
+              verticalAlign: "middle",
+              display: "inline-block",
+              height: "100%",
+              width: "100%",
+              position: "absolute",
+              top: "20%",
+            }}
+          >
+            <Progress message="Please wait..." />
+          </div>
+        </Overlay>
+      )}
+    </Fabric>
+  );
+};

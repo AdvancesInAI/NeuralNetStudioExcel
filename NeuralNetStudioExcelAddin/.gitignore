@@ -24,6 +24,9 @@ Bin/
 obj/
 Obj/
 
+# Node dist folder
+dist/
+
 # Visual Studio 2015 cache/options directory
 .vs/
 /wwwroot/dist/
