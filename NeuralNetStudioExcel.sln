@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetStudioExcel", "NeuralNetStudioExcel\NeuralNetStudioExcel.csproj", "{7FF05C6E-EEE6-4DAF-9154-8EE255640380}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetStudioExcelWeb", "NeuralNetStudioExcelWeb\NeuralNetStudioExcelWeb.csproj", "{166B4601-6E18-4345-B642-71F73A994F27}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetStudioExcelAddin", "NeuralNetStudioExcelAddin\NeuralNetStudioExcelAddin.csproj", "{1CD01AE6-D504-472C-8666-4E3B021638B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeuralNetStudioExcelAddin", "NeuralNetStudioExcelAddin\NeuralNetStudioExcelAddin.csproj", "{1CD01AE6-D504-472C-8666-4E3B021638B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{7FF05C6E-EEE6-4DAF-9154-8EE255640380}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF05C6E-EEE6-4DAF-9154-8EE255640380}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FF05C6E-EEE6-4DAF-9154-8EE255640380}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{166B4601-6E18-4345-B642-71F73A994F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{166B4601-6E18-4345-B642-71F73A994F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{166B4601-6E18-4345-B642-71F73A994F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{166B4601-6E18-4345-B642-71F73A994F27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1CD01AE6-D504-472C-8666-4E3B021638B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1CD01AE6-D504-472C-8666-4E3B021638B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CD01AE6-D504-472C-8666-4E3B021638B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
