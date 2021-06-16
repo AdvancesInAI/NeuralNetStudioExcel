@@ -1,4 +1,4 @@
-import { IStackTokens, PrimaryButton, Separator, Stack } from "office-ui-fabric-react";
+import { IStackTokens, PrimaryButton, Separator, Stack } from "@fluentui/react";
 import * as React from "react";
 /* global console */
 

@@ -5,7 +5,7 @@ import { Header } from "./Header";
 import { WelcomePage } from "./WelcomePage";
 import Progress from "./Progress";
 import { setAuthAndHomeForm } from "../store/formStore";
-import { Fabric, Overlay } from "office-ui-fabric-react";
+import { Fabric, Overlay } from "@fluentui/react";
 import { AppScreen, IFormState } from "../store/appTypes";
 import { RootState } from "../store/store";
 // images references in the manifest

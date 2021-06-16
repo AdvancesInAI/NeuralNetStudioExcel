@@ -1,4 +1,4 @@
-import { ContextualMenu, IconButton, MessageBar, MessageBarType } from "office-ui-fabric-react";
+import { ContextualMenu, IconButton, MessageBar, MessageBarType } from "@fluentui/react";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IFormState } from "../store/appTypes";
