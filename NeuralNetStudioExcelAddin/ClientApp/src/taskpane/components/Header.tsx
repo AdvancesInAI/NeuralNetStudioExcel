@@ -2,7 +2,7 @@ import { ContextualMenu, IconButton, MessageBar, MessageBarType } from "@fluentu
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IFormState } from "../store/appTypes";
-import { resetMessages, setHomeForm } from "../store/formStore";
+import { resetMessages, setDatasetForm, setWelcomeForm } from "../store/formStore";
 import { RootState } from "../store/store";
 /* global console, document */
 
@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
 
   const onLogOut = () => {
     // clearAppID();
-    dispatch(setHomeForm());
+    dispatch(setWelcomeForm());
   };
 
   const onHelp = () => {
@@ -40,6 +40,9 @@ export const Header: React.FC = () => {
     dispatch(resetMessages());
   };
 
+  const onGoWelcomePage = () => dispatch(setWelcomeForm());
+  const onGoDatasetPage = () => dispatch(setDatasetForm());
+
   const menuItems = [
     {
       key: "help",
@@ -52,6 +55,18 @@ export const Header: React.FC = () => {
       text: "Log Out",
       iconProps: { iconName: "SignOut" },
       onClick: onLogOut,
+    },
+    {
+      key: "welcome",
+      text: "welcome",
+      iconProps: { iconName: "PageRight" },
+      onClick: onGoWelcomePage,
+    },
+    {
+      key: "dataset",
+      text: "dataset",
+      iconProps: { iconName: "PageRight" },
+      onClick: onGoDatasetPage,
     },
   ];
 

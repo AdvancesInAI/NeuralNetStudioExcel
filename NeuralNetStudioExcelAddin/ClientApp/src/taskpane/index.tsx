@@ -14,14 +14,12 @@ initializeIcons();
 
 let isOfficeInitialized = false;
 
-const title = "Neural Net Studio Add-in";
-
 const render = (Component) => {
   ReactDOM.render(
     <ThemeProvider applyTo="body" theme={myTheme}>
       <AppContainer>
         <Provider store={store}>
-          <Component title={title} isOfficeInitialized={isOfficeInitialized} />
+          <Component isOfficeInitialized={isOfficeInitialized} />
         </Provider>
       </AppContainer>
     </ThemeProvider>,
@@ -34,6 +32,8 @@ Office.initialize = () => {
   isOfficeInitialized = true;
   render(App);
 };
+
+render(App);
 
 if ((module as any).hot) {
   (module as any).hot.accept("./components/App", () => {

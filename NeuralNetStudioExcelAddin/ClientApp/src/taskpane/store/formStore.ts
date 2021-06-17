@@ -47,15 +47,19 @@ const form = createSlice({
       state.message = "";
     },
 
-    setAuthAndHomeForm(state) {
+    setAuthAndWelcomeForm(state) {
       state.isInitCalled = true;
       state.authStatus = "OK";
       state.errorMessage = "";
-      state.appScreen = "home";
+      state.appScreen = "welcome";
       state.isBusy = false;
     },
-    setHomeForm(state) {
-      state.appScreen = "home";
+    setWelcomeForm(state) {
+      state.appScreen = "welcome";
+      state.isBusy = false;
+    },
+    setDatasetForm(state) {
+      state.appScreen = "dataset";
       state.isBusy = false;
     },
   },
@@ -70,8 +74,9 @@ export const {
 
   setBusy,
   setFree,
-  setAuthAndHomeForm,
-  setHomeForm,
+  setAuthAndWelcomeForm,
+  setWelcomeForm,
+  setDatasetForm,
 } = form.actions;
 
 export default form.reducer;

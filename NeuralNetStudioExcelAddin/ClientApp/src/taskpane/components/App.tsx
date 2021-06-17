@@ -4,20 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Header } from "./Header";
 import { WelcomePage } from "./WelcomePage";
 import Progress from "./Progress";
-import { setAuthAndHomeForm } from "../store/formStore";
-import { Fabric, Overlay } from "@fluentui/react";
+import { setAuthAndWelcomeForm } from "../store/formStore";
+import { Overlay } from "@fluentui/react";
 import { AppScreen, IFormState } from "../store/appTypes";
 import { RootState } from "../store/store";
+import { DatasetPage } from "./DatasetPage";
 // images references in the manifest
 // import "../../../assets/icon-16.png";
 // import "../../../assets/icon-32.png";
 // import "../../../assets/icon-80.png";
 /* global console */
 // /* global console, Excel  */
-// /* global console, Excel  */
 
 export interface AppProps {
-  title: string;
   isOfficeInitialized: boolean;
 }
 
@@ -25,7 +24,7 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
   const dispatch = useDispatch();
   const formState = useSelector((state: RootState) => state.form) as IFormState;
 
-  console.log("init");
+  console.log("init: " + _prop.isOfficeInitialized);
 
   //load init data
   useEffect(() => {
@@ -35,7 +34,7 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
 
   //Check auth and load data
   const fetchInitData = async () => {
-    dispatch(setAuthAndHomeForm());
+    dispatch(setAuthAndWelcomeForm());
 
     // const api = "/api/load/";
     // try {
@@ -54,19 +53,21 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
     // }
   };
 
-  if (!_prop.isOfficeInitialized) {
-    return <Progress message="Please sideload your addin to see app body." />;
-  }
+  // if (!_prop.isOfficeInitialized) {
+  //   return <Progress message="Please sideload your addin to see app body." />;
+  // }
 
   const getScreenBytext = (screen: AppScreen) => {
     if (!formState.isInitCalled) {
       return null;
     }
 
-    if (screen == "home") {
+    if (screen == "welcome") {
       return <WelcomePage></WelcomePage>;
     } else if (screen == "auth") {
       return <WelcomePage></WelcomePage>;
+    } else if (screen == "dataset") {
+      return <DatasetPage></DatasetPage>;
     }
 
     return null;
@@ -75,7 +76,7 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
   const screen = getScreenBytext(formState.appScreen);
 
   return (
-    <Fabric>
+    <div>
       <div className="sidebar top">
         <Header />
       </div>
@@ -89,13 +90,13 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
               height: "100%",
               width: "100%",
               position: "absolute",
-              top: "20%",
+              top: "40%",
             }}
           >
             <Progress message="Please wait..." />
           </div>
         </Overlay>
       )}
-    </Fabric>
+    </div>
   );
 };

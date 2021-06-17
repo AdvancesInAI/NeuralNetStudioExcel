@@ -10,9 +10,9 @@ export default class Progress extends React.Component<ProgressProps> {
     const { message } = this.props;
 
     return (
-      <section className="ms-welcome__progress ms-u-fadeIn500">
+      <div>
         <Spinner size={SpinnerSize.large} label={message} />
-      </section>
+      </div>
     );
   }
 }
