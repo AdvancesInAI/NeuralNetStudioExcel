@@ -1,4 +1,4 @@
-export type AppScreen = "welcome" | "auth" | "dataset";
+export type AppScreen = "welcome" | "auth" | "dataset" | "createSolution";
 
 export interface IFormState {
   isBusy: boolean;
@@ -11,7 +11,7 @@ export interface IFormState {
 
 export const formInitialState: IFormState = {
   isBusy: false,
-  appScreen: "auth",
+  appScreen: "welcome",
   isInitCalled: false,
   authStatus: "NO",
   errorMessage: "",

@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Header } from "./Header";
 import { WelcomePage } from "./WelcomePage";
 import Progress from "./Progress";
-import { setAuthAndWelcomeForm } from "../store/formStore";
+import { setFormState } from "../store/formStore";
 import { Overlay } from "@fluentui/react";
 import { AppScreen, IFormState } from "../store/appTypes";
 import { RootState } from "../store/store";
 import { DatasetPage } from "./DatasetPage";
+import { CreateSolutionPage } from "./CreateSolutionPage";
 // images references in the manifest
 // import "../../../assets/icon-16.png";
 // import "../../../assets/icon-32.png";
@@ -24,7 +25,7 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
   const dispatch = useDispatch();
   const formState = useSelector((state: RootState) => state.form) as IFormState;
 
-  console.log("init: " + _prop.isOfficeInitialized);
+  console.log(`init: ${formState.appScreen}: ${_prop.isOfficeInitialized}`);
 
   //load init data
   useEffect(() => {
@@ -34,7 +35,17 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
 
   //Check auth and load data
   const fetchInitData = async () => {
-    dispatch(setAuthAndWelcomeForm());
+    const newFormState: IFormState = {
+      isBusy: false,
+      appScreen: "createSolution",
+      isInitCalled: true,
+      authStatus: "NO",
+      errorMessage: "",
+      message: "",
+    };
+
+    dispatch(setFormState(newFormState));
+    //dispatch(setCreateSolutionForm());
 
     // const api = "/api/load/";
     // try {
@@ -53,22 +64,15 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
     // }
   };
 
-  // if (!_prop.isOfficeInitialized) {
-  //   return <Progress message="Please sideload your addin to see app body." />;
-  // }
-
   const getScreenBytext = (screen: AppScreen) => {
     if (!formState.isInitCalled) {
       return null;
     }
 
-    if (screen == "welcome") {
-      return <WelcomePage></WelcomePage>;
-    } else if (screen == "auth") {
-      return <WelcomePage></WelcomePage>;
-    } else if (screen == "dataset") {
-      return <DatasetPage></DatasetPage>;
-    }
+    if (screen == "welcome") return <WelcomePage></WelcomePage>;
+    if (screen == "auth") return <WelcomePage></WelcomePage>;
+    if (screen == "dataset") return <DatasetPage></DatasetPage>;
+    if (screen == "createSolution") return <CreateSolutionPage></CreateSolutionPage>;
 
     return null;
   };

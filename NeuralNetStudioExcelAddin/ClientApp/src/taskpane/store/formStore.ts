@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { formInitialState, IFormState } from "./appTypes";
+/* global console */
 
 const form = createSlice({
   name: "form",
   initialState: formInitialState,
   reducers: {
     setFormState(state, action: PayloadAction<IFormState>) {
+      console.log(action.payload);
       state.appScreen = action.payload.appScreen;
       state.authStatus = action.payload.authStatus;
       state.errorMessage = action.payload.errorMessage;
@@ -33,11 +35,6 @@ const form = createSlice({
       state.isBusy = false;
     },
 
-    setAuth(state) {
-      state.isInitCalled = true;
-      state.authStatus = "OK";
-      state.errorMessage = "";
-    },
     setAuthForm(state) {
       state.isInitCalled = true;
 
@@ -62,12 +59,15 @@ const form = createSlice({
       state.appScreen = "dataset";
       state.isBusy = false;
     },
+    setCreateSolutionForm(state) {
+      state.appScreen = "createSolution";
+      state.isBusy = false;
+    },
   },
 });
 
 export const {
   setFormState,
-  setAuth,
   setErrorMessage,
   setMessage,
   resetMessages,
@@ -77,6 +77,7 @@ export const {
   setAuthAndWelcomeForm,
   setWelcomeForm,
   setDatasetForm,
+  setCreateSolutionForm,
 } = form.actions;
 
 export default form.reducer;

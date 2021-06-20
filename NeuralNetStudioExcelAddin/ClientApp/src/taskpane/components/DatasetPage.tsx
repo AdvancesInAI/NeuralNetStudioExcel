@@ -24,7 +24,7 @@ export const DatasetPage: React.FC = () => {
 
   return (
     <Stack tokens={{ childrenGap: 10 }}>
-      <div className="center ms-font-xl ms-fontWeight-bold">DatasetPage</div>
+      <div className="center ms-font-xl ms-fontWeight-bold">Dataset</div>
       <TextField label="Name" />
       <Dropdown placeholder="List of Columns" label="Target Columns" options={options} />
       <div className="ms-fontWeight-semibold">Columns:</div>

@@ -13,6 +13,7 @@ import { myTheme } from "./Theme";
 initializeIcons();
 
 let isOfficeInitialized = false;
+let isUIDebug = true; //For test in Browser without office
 
 const render = (Component) => {
   ReactDOM.render(
@@ -27,13 +28,15 @@ const render = (Component) => {
   );
 };
 
-/* Render application after Office initializes */
-Office.initialize = () => {
-  isOfficeInitialized = true;
+if (isUIDebug) {
   render(App);
-};
-
-render(App);
+} else {
+  /* Render application after Office initializes */
+  Office.initialize = () => {
+    isOfficeInitialized = true;
+    render(App);
+  };
+}
 
 if ((module as any).hot) {
   (module as any).hot.accept("./components/App", () => {
