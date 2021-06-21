@@ -63,6 +63,10 @@ const form = createSlice({
       state.appScreen = "createSolution";
       state.isBusy = false;
     },
+    setSolutionForm(state) {
+      state.appScreen = "solution";
+      state.isBusy = false;
+    },
   },
 });
 
@@ -78,6 +82,7 @@ export const {
   setWelcomeForm,
   setDatasetForm,
   setCreateSolutionForm,
+  setSolutionForm,
 } = form.actions;
 
 export default form.reducer;

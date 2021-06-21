@@ -1,4 +1,4 @@
-export type AppScreen = "welcome" | "auth" | "dataset" | "createSolution";
+export type AppScreen = "welcome" | "auth" | "dataset" | "createSolution" | "solution";
 
 export interface IFormState {
   isBusy: boolean;

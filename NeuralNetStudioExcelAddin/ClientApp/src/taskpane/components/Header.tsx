@@ -2,7 +2,13 @@ import { ContextualMenu, IconButton, MessageBar, MessageBarType } from "@fluentu
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IFormState } from "../store/appTypes";
-import { resetMessages, setCreateSolutionForm, setDatasetForm, setWelcomeForm } from "../store/formStore";
+import {
+  resetMessages,
+  setCreateSolutionForm,
+  setDatasetForm,
+  setSolutionForm,
+  setWelcomeForm,
+} from "../store/formStore";
 import { RootState } from "../store/store";
 /* global console, document */
 
@@ -43,6 +49,7 @@ export const Header: React.FC = () => {
   const onGoWelcomePage = () => dispatch(setWelcomeForm());
   const onGoDatasetPage = () => dispatch(setDatasetForm());
   const onGoCreateSolutionPage = () => dispatch(setCreateSolutionForm());
+  const onGoSolutionPage = () => dispatch(setSolutionForm());
 
   const menuItems = [
     {
@@ -74,6 +81,12 @@ export const Header: React.FC = () => {
       text: "createSolution",
       iconProps: { iconName: "PageRight" },
       onClick: onGoCreateSolutionPage,
+    },
+    {
+      key: "solution",
+      text: "solution",
+      iconProps: { iconName: "PageRight" },
+      onClick: onGoSolutionPage,
     },
   ];
 
