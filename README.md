@@ -4,9 +4,11 @@ An Excel Add-in to access the data curation and AI functionality of Neural Net S
 Add-in use .NET 5 as server side, React, Redux, Fluent UI on client side.  
 
 1. Development process and local testing
+
 1.1. Start Client app.
 
 Open Terminal and run commands:
+
     Cd  “c:\ … \NeuralNetStudioExcel\NeuralNetStudioExcelAddin\ClientApp”
     npm run start
 
