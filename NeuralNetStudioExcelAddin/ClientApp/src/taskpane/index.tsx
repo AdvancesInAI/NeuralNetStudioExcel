@@ -13,7 +13,7 @@ import { myTheme } from "./Theme";
 initializeIcons();
 
 let isOfficeInitialized = false;
-let isUIDebug = true; //For test in Browser without office
+let isUIDebug = false; //For test in Browser without office
 
 const render = (Component) => {
   ReactDOM.render(

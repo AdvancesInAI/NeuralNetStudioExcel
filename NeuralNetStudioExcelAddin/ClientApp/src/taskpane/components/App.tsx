@@ -11,6 +11,7 @@ import { RootState } from "../store/store";
 import { DatasetPage } from "./DatasetPage";
 import { CreateSolutionPage } from "./CreateSolutionPage";
 import { SolutionPage } from "./SolutionPage";
+import { SolutionRequestPage } from "./SolutionRequestPage";
 // images references in the manifest
 // import "../../../assets/icon-16.png";
 // import "../../../assets/icon-32.png";
@@ -38,7 +39,7 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
   const fetchInitData = async () => {
     const newFormState: IFormState = {
       isBusy: false,
-      appScreen: "solution",
+      appScreen: "solutionRequest",
       isInitCalled: true,
       authStatus: "NO",
       errorMessage: "",
@@ -75,6 +76,7 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
     if (screen == "dataset") return <DatasetPage></DatasetPage>;
     if (screen == "createSolution") return <CreateSolutionPage></CreateSolutionPage>;
     if (screen == "solution") return <SolutionPage></SolutionPage>;
+    if (screen == "solutionRequest") return <SolutionRequestPage></SolutionRequestPage>;
 
     return null;
   };

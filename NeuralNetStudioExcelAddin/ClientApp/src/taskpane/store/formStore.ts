@@ -67,6 +67,10 @@ const form = createSlice({
       state.appScreen = "solution";
       state.isBusy = false;
     },
+    setSolutionRequestForm(state) {
+      state.appScreen = "solutionRequest";
+      state.isBusy = false;
+    },
   },
 });
 
