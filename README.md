@@ -3,9 +3,9 @@ An Excel Add-in to access the data curation and AI functionality of Neural Net S
 
 Add-in use .NET 5 as server side, React, Redux, Fluent UI on client side.  
 
-1. Development process and local testing
+## 1. Development process and local testing
 
-1.1. Start Client app.
+### Start Client app.
 
 Open Terminal and run commands:
 
@@ -19,7 +19,7 @@ Or start from VS Code
 This will start NodeJS local server and open client app in Excel.
 It use manifest file from ClientApp folder. (https://localhost:3000/)
 
-1.2. Start Server side project
+### Start Server side project
 
 - Go To Visual Studio solution and start Debug
 
@@ -28,12 +28,12 @@ Now you can Debug server app and edit client app with hot reload support.
 It use manifest file from Visual Studio project. (https://localhost:44317/)
 
 
-2. Test UI
+## 2. Test UI
 In index.ts file we have variable 
 isUIDebug = true; 
 For a test in Browser without Excel host. This may be helpful for UI tests and development.
 
-1. Add-in Theme 
+## 3. Add-in Theme 
 Add-in use MS FluentUI 8 Framework  https://developer.microsoft.com/ru-ru/fluentui#/controls/web
 For theming, we use  ThemeProvider https://github.com/microsoft/fluentui/wiki/How-to-apply-theme-to-Fluent-UI-React-components
 Theme-defined in Theme.ts file 
