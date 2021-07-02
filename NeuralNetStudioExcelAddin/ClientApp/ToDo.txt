@@ -1,0 +1,41 @@
+Turn off lint
+See cause of failure to load
+Slow to load
+"The dev server is already running on port 3000.", but it isn't
+
+custom classes and functions
+	where, how to import
+
+
+React in Visual Studio instead of Code
+
+Complete mess of different approaches
+
+TypeScript html generation
+
+React TaskPane slow to load
+
+Use React or simple HTML and TypeScript?
+	e.g. will React make it less messy to create a table from a list or objects? - https://react.christmas/2020/22
+
+Initialize collection of column at load.
+	Where?
+	Utility class
+		WorksheetManager
+			GetColumns()
+
+Examples of React classes:
+	Where to define them?
+	Where to initialize them?
+
+How to imports work?
+	e.g. my classes and utility functions
+
+Should I use jQuery to access elements?
+
+Turn off lint bullshit
+
+where does console output go?
+
+DROPDOWN:
+                    var Dropdown = new fabric['Dropdown'](DropdownHTMLElements[i]);

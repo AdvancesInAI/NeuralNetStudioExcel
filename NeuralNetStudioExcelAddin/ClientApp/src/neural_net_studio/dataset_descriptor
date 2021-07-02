@@ -1,0 +1,8 @@
+//import { Person } from './person';
+
+export class DatasetDescriptor {
+  name: string;
+  uuid: string;
+  columns: []];
+
+}

@@ -16,7 +16,7 @@
       "postDebugTask": "Stop Debug"
     },
     {
-      "name": "Excel Desktop (Edge Legacy)",
+      "name": "Attach to Office Add-ins",
       "type": "office-addin",
       "request": "attach",
       "url": "https://localhost:3000/taskpane.html?_host_Info=Excel$Win32$16.01$en-US$$$$0",
@@ -106,6 +106,6 @@
       "port": 9222,
       "webRoot": "${workspaceFolder}",
       "preLaunchTask": "Debug: Web"
-    }
+    }=
   ]
 }
