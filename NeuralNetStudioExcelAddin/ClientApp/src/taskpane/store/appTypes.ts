@@ -11,7 +11,7 @@ export interface IFormState {
 
 export const formInitialState: IFormState = {
   isBusy: false,
-  appScreen: "welcome",
+  appScreen: "solution",
   isInitCalled: false,
   authStatus: "NO",
   errorMessage: "",
