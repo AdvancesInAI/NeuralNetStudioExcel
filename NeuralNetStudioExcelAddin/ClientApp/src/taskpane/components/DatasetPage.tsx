@@ -63,12 +63,16 @@ export const DatasetPage: React.FC = () => {
     dropdown: { width: 300 },
   }; 
 
-  Office.context.ui.displayDialogAsync(
-    'https://localhost:3000/dataset-directions.html',
-    {height: 65, width: 45},
-  
-    // TODO2: Add callback parameter.
-  );
+  let datasetExists = false;
+  if(datasetExists == false)
+  {
+    Office.context.ui.displayDialogAsync(
+      'https://localhost:3000/dataset-instructions.html',
+      {height: 65, width: 45},
+    
+      // TODO2: Add callback parameter.
+    );
+  }
 
   return (
     <Stack tokens={{ childrenGap: 10 }}>
