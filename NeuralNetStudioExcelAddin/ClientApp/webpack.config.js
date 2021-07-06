@@ -93,6 +93,11 @@ module.exports = async (env, options) => {
         filename: "solution-instructions.html",
         template: "./src/dialogs/solution-instructions.html",
         chunks: ["polyfill", "solution-instructions"]
+      }),
+      new HtmlWebpackPlugin({
+        filename: "feature-importances.html",
+        template: "./src/dialogs/feature-importances.html",
+        chunks: ["polyfill", "feature-importances"]
       })
     ],
     devServer: {

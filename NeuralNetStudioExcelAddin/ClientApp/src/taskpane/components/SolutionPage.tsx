@@ -42,10 +42,10 @@ const onPredict = () => {
   };
 
   // Open Dialog example https://docs.microsoft.com/en-us/learn/modules/office-add-ins-excel/7-exercise-dialogs
-  const onChangeModel = () => {
-    console.log("onChangeModel");
+  const showFeatureImportances = () => {
+    console.log("showFeatureImportances");
     Office.context.ui.displayDialogAsync(
-      'https://localhost:3000/popup.html',
+      'https://localhost:3000/feature-importances.html',
       {height: 45, width: 55},
     
       // TODO2: Add callback parameter.
@@ -96,10 +96,11 @@ function toggleFeatureImportance(ev?: React.FormEvent<HTMLElement | HTMLInputEle
       <div className="center ms-font-xl ms-fontWeight-bold">Solution</div>
       <div className=" ms-font-l ms-fontWeight-semibold">Name: {name}</div>
       <div className=" ms-font-l ms-fontWeight-semibold">Accuracy: {accuracy}%</div>
-      <TextField label="Solution UUID:" value={solutionUuid} />
-      <TextField label="Model UUID:" value={modelUuid} />
-      <PrimaryButton text="Change Model" onClick={onChangeModel} />
-      <Checkbox className="ms-font-l" label="Show Feature Importance" onChange={toggleFeatureImportance} />
+      <TextField label="Solution ID:" value={solutionUuid} />
+      {/* <TextField label="Model UUID:" value={modelUuid} /> */}
+      {/* <PrimaryButton text="Change Model" onClick={onChangeModel} /> */}
+      <Checkbox className="ms-font-l" label="Show Most Importance Columns" onChange={toggleFeatureImportance} />
+      <PrimaryButton text="View Importance of All Columns" onClick={showFeatureImportances} />
       <TextField label="Predict Data" value={selectedRange} />
       {/* <ChoiceGroup selectedKey={selectedKey} options={options} onChange={onChange} label="Predict data:" /> */}
       {/* <Dropdown placeholder="Choose worksheets" label="List of worksheets" options={sheetOptions} /> */}

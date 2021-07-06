@@ -70,7 +70,7 @@ export const DatasetPage: React.FC = () => {
       'https://localhost:3000/dataset-instructions.html',
       {height: 65, width: 45},
     
-      // TODO2: Add callback parameter.
+      // TODO2: Add callback parameter. 
     );
   }
 
@@ -174,7 +174,7 @@ export const DatasetPage: React.FC = () => {
       </table>
       <DefaultButton text="Analyze Dataset" onClick={onAnalyze} />
       <PrimaryButton text="Create Solution" onClick={onCreateSolution} />
-      <Callout directionalHintFixed={true}
+      {/* <Callout directionalHintFixed={true}
         className="ms-CalloutExample-callout"
         ariaLabelledBy={"callout-label-1"}
         ariaDescribedBy={"callout-description-1"}
@@ -204,7 +204,7 @@ export const DatasetPage: React.FC = () => {
             </Link>
           </div>
         </div>
-      </Callout>
+      </Callout> */}
     </Stack>
   );
 };
