@@ -19,6 +19,7 @@ module.exports = async (env, options) => {
       vendor: ["react", "react-dom", "core-js", "@fluentui/react"],
       taskpane: ["react-hot-loader/patch", "./src/taskpane/index.tsx"],
       commands: "./src/commands/commands.ts",
+      popup: "./src/dialogs/popup.js",
     },
     resolve: {
       extensions: [".ts", ".tsx", ".html", ".js"],
@@ -78,6 +79,21 @@ module.exports = async (env, options) => {
       new webpack.ProvidePlugin({
         Promise: ["es6-promise", "Promise"],
       }),
+      new HtmlWebpackPlugin({
+        filename: "popup.html",
+        template: "./src/dialogs/popup.html",
+        chunks: ["polyfill", "popup"]
+      }),
+      new HtmlWebpackPlugin({
+        filename: "dataset-instructions.html",
+        template: "./src/dialogs/dataset-instructions.html",
+        chunks: ["polyfill", "dataset-instructions"]
+      }),
+      new HtmlWebpackPlugin({
+        filename: "solution-instructions.html",
+        template: "./src/dialogs/solution-instructions.html",
+        chunks: ["polyfill", "solution-instructions"]
+      })
     ],
     devServer: {
       hot: true,

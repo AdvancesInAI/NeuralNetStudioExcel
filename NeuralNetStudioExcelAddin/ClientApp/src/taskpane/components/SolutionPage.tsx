@@ -1,4 +1,4 @@
-import { PrimaryButton, Stack, Checkbox, Link } from "@fluentui/react";
+import { PrimaryButton, Stack, Checkbox } from "@fluentui/react";
 import { TextField } from "@fluentui/react/lib/TextField";
 import * as React from "react";
 import { showNotification } from "../../neural_net_studio/utils"
@@ -11,7 +11,6 @@ export const SolutionPage: React.FC = () => {
   const modelUuid = "890";
   const accuracy = 97.4;
   const selectedRange = "";  
-  const [choice, setChoice] = React.useState<string | undefined>(undefined);
 
 const onPredict = () => {
     console.log("onPredict");
@@ -42,8 +41,16 @@ const onPredict = () => {
       });
   };
 
+  // Open Dialog example https://docs.microsoft.com/en-us/learn/modules/office-add-ins-excel/7-exercise-dialogs
   const onChangeModel = () => {
     console.log("onChangeModel");
+    Office.context.ui.displayDialogAsync(
+      'https://localhost:3000/popup.html',
+      {height: 45, width: 55},
+    
+      // TODO2: Add callback parameter.
+    );
+    
   };
 
 //   const toggleFeatureImportance = () => {
@@ -61,7 +68,7 @@ function toggleFeatureImportance(ev?: React.FormEvent<HTMLElement | HTMLInputEle
 
         let columnImportances = [["F", 10], ["C", 8, "Week"], ["H", 7]]
         
-        for (const columnImportance of columnImportances as const) {          
+        for (var columnImportance of columnImportances) {          
           let columnAddress = `${columnImportance[0]}:${columnImportance[0]}`;
           const column = sheet.getRange(columnAddress);
           let commentAddress = `${sheet.name}!${columnImportance[0]}1`;
