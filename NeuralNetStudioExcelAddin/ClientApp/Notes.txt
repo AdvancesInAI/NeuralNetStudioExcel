@@ -1,0 +1,4 @@
+Excel
+    Charts
+        Confidence Intervals
+            https://nikkimarinsek.com/blog/tutorial-how-to-make-shaded-error-bands-in-excel

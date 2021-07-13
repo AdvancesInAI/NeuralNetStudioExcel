@@ -19,12 +19,25 @@ export const DatasetPage: React.FC = () => {
   };
 
   const onCreateSolution = () => {
-    console.log("onCreateSolution");
+    Office.context.ui.displayDialogAsync(
+      'https://localhost:3000/solution-request-submitted.html',
+      {height: 45, width: 35},
+    
+      // TODO2: Add callback parameter.
+    );    
   };
 
   // const dropdownStyles: Partial<IDropdownStyles> = {
   //   dropdown: { width: 300 },
   // };
+
+  const externalDatasets: IDropdownOption[] = [
+    { key: "Weather", text: "Weather"}
+    { key: "EconomicProjects", text: "Fed Economic Projects"}
+    { key: "GoogleTrends", text: "Google Trends"}
+    { key: "LocalEvents", text: "Local Events"}
+  ]
+
 
   const modelTypes: IDropdownOption[] = [
     { key: "Regression", text: "Regression (Predict a numeric value)"}
@@ -47,7 +60,7 @@ export const DatasetPage: React.FC = () => {
   const missingActions: IDropdownOption[] = [
     { key: "Interpolate", text: "Interpolate" },
     { key: "Delete", text: "Delete" },
-    { key: "Constant", text: "Constant" },
+    { key: "Token", text: "Token" },
   ];
 
   const dateTypes: IDropdownOption[] = [
@@ -77,18 +90,45 @@ export const DatasetPage: React.FC = () => {
   return (
     <Stack tokens={{ childrenGap: 10 }}>
       <div className="center ms-font-xl ms-fontWeight-bold">Dataset</div>
-      <TextField label="Name" value="Rossmann" id="dataset-name" />
-      <Dropdown label="Type of Question to Answer" options={modelTypes} defaultSelectedKey="Regression" id="model-type" />
-      <Dropdown placeholder="Select a column" label="Column to Predict" options={worksheetColumns} id="predict-column" />
+      <TextField label="Name:" value="Rossmann" id="dataset-name" />
+      <Dropdown label="Type of Question to Answer:" options={modelTypes} defaultSelectedKey="Regression" id="model-type" />
+      <Dropdown required placeholder="Select a column" label="Column to Predict:" options={worksheetColumns} id="predict-column" />
       <Dropdown
         placeholder="Columns to exclude"
-        label="Excluded Columns"
+        label="Excluded Columns:"
         defaultSelectedKeys={["Customers"]}
         multiSelect
         options={worksheetColumns}
         styles={dropdownStyles}
       />
-      <div className="ms-fontWeight-semibold">Columns:</div>
+      <span>
+      <text className="ms-font-l ms-fontWeight-semibold">External Datasets: {name}</text>
+      <PrimaryButton className="ms-font-m" text="Add"></PrimaryButton>
+      </span>
+      <table border>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Dataset Type</th>
+            <th>Key Column</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="center">1</td>
+            <td className="center">Weather</td>
+            <td className="center">Date</td>
+          </tr>
+          </tbody>
+          </table>
+      {/* <Dropdown
+        placeholder="Add external datasets"
+        label="External Datasets:"
+        multiSelect
+        options={externalDatasets}
+        styles={dropdownStyles}
+      /> */}
+      <div className="ms-font-l ms-fontWeight-semibold">Columns:</div>
       <table>
         <thead>
           <tr>
@@ -100,13 +140,13 @@ export const DatasetPage: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {/* <tr>
             <td>Store</td>
             <Dropdown options={dateTypes} defaultSelectedKey="Categorical" />
             <td className="center">?</td>
             <td className="center">?</td>
             <Dropdown options={missingActions} defaultSelectedKey="Interpolate" />
-          </tr>
+          </tr> */}
           <tr>
             <td>DayOfWeek</td>
             <Dropdown options={dateTypes} defaultSelectedKey="Categorical" />
@@ -128,26 +168,26 @@ export const DatasetPage: React.FC = () => {
             <td className="center">?</td>
             <Dropdown options={missingActions} defaultSelectedKey="Interpolate" />
           </tr>
-          <tr>
+          {/* <tr>
             <td>Store</td>
             <Dropdown options={dateTypes} defaultSelectedKey="Float" />
             <td className="center">?</td>
             <td className="center">?</td>
             <Dropdown options={missingActions} defaultSelectedKey="Interpolate" />
-          </tr>
+          </tr> */}
           <tr>
             <td>Open</td>
             <Dropdown options={dateTypes} defaultSelectedKey="Boolean" />
             <td className="center">?</td>
             <td className="center">?</td>
-            <Dropdown options={missingActions} defaultSelectedKey="Interpolate" />
+            <Dropdown options={missingActions} defaultSelectedKey="Delete" />
           </tr>
           <tr>
             <td>Promo</td>
             <Dropdown options={dateTypes} defaultSelectedKey="Boolean" />
             <td className="center">?</td>
             <td className="center">?</td>
-            <Dropdown options={missingActions} defaultSelectedKey="Interpolate" />
+            <Dropdown options={missingActions} defaultSelectedKey="Token" />
           </tr>
           <tr>
             <td>StateHoliday</td>
@@ -174,6 +214,8 @@ export const DatasetPage: React.FC = () => {
       </table>
       <DefaultButton text="Analyze Dataset" onClick={onAnalyze} />
       <PrimaryButton text="Create Solution" onClick={onCreateSolution} />
+      <br></br>
+      <br></br>
       {/* <Callout directionalHintFixed={true}
         className="ms-CalloutExample-callout"
         ariaLabelledBy={"callout-label-1"}
