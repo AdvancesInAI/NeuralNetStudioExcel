@@ -14,6 +14,8 @@ import * as React from "react";
 /* global console */
 
 export const DatasetPage: React.FC = () => {
+  let datasetName = "Historical Sales";
+
   const onAnalyze = () => {
     console.log("onAnalyze");
   };
@@ -21,10 +23,11 @@ export const DatasetPage: React.FC = () => {
   const onCreateSolution = () => {
     Office.context.ui.displayDialogAsync(
       'https://localhost:3000/solution-request-submitted.html',
-      {height: 45, width: 35},
-    
-      // TODO2: Add callback parameter.
+      {height: 55, width: 35},
     );    
+
+    // ToDo: How to redirect to SolutionPage?
+    // window.open('https://localhost:3000/SolutionPage');
   };
 
   // const dropdownStyles: Partial<IDropdownStyles> = {
@@ -76,12 +79,24 @@ export const DatasetPage: React.FC = () => {
     dropdown: { width: 300 },
   }; 
 
+  function getSheetName(): string {
+    let retVal = "Name the dataset."
+    Excel.run(async (context) => {
+      // const sheet = context.workbook.worksheets.getItem("Sheet1");
+      var sheet = context.workbook.worksheets.getActiveWorksheet();
+      sheet.load("name");
+      await context.sync();
+      retVal = sheet.name;
+    });    
+    return retVal;
+  }
+
   let datasetExists = false;
   if(datasetExists == false)
   {
     Office.context.ui.displayDialogAsync(
       'https://localhost:3000/dataset-instructions.html',
-      {height: 65, width: 45},
+      {height: 55, width: 35},
     
       // TODO2: Add callback parameter. 
     );
@@ -90,7 +105,7 @@ export const DatasetPage: React.FC = () => {
   return (
     <Stack tokens={{ childrenGap: 10 }}>
       <div className="center ms-font-xl ms-fontWeight-bold">Dataset</div>
-      <TextField label="Name:" value="Rossmann" id="dataset-name" />
+      <TextField label="Name:" value={datasetName} id="dataset-name" />
       <Dropdown label="Type of Question to Answer:" options={modelTypes} defaultSelectedKey="Regression" id="model-type" />
       <Dropdown required placeholder="Select a column" label="Column to Predict:" options={worksheetColumns} id="predict-column" />
       <Dropdown
@@ -250,3 +265,5 @@ export const DatasetPage: React.FC = () => {
     </Stack>
   );
 };
+
+

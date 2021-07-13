@@ -1,3 +1,10 @@
+On "Create Solution", navigate to Solution page
+SolutionPage on ID change
+	show accuracy
+	activate predict button
+html dialog styling
+top nav bar
+
 Turn off lint
 See cause of failure to load
 Slow to load

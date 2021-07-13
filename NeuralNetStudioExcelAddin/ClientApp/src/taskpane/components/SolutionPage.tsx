@@ -6,7 +6,7 @@ import { getTheme } from '@fluentui/react';
 /* global console */
 
 export const SolutionPage: React.FC = () => {
-  const name = "Historical Sales";
+  const name = "Store 1 Sales";
   const solutionUuid = "990f9beb-39e5-4198-925e-0e39cd1d2e31";
   const modelUuid = "53a4a591-2e60-4e13-96c4-f69fd5f1cd84";
   const accuracy = 97.4;
@@ -180,8 +180,8 @@ function clear_column_formating(column: Excel.Range, comments: Excel.CommentColl
 }
 
 function getPredictedValue(rowIndex: number): [any, any] {
-  let value = [[4572]];
-  let confidence = [[93]];
+  let value = [[ Math.floor(Math.random() * (5100 - 4500 + 1)) + 4500]];
+  let confidence = [[Math.floor(Math.random() * (97 - 90 + 1)) + 90]];
   switch(rowIndex)
   {
     case 10:{
@@ -222,18 +222,18 @@ function getPredictedValue(rowIndex: number): [any, any] {
       confidence = [[92]];
       break;
     }
-  case 18:{
-    value = [[0]];
-    confidence = [[99]];
-    break;
-  }
-    case 19:{
+    case 18:{
       value = [[0]];
       confidence = [[99]];
       break;
+    } 
+    case 19:{
+      value = [[4527]];
+      confidence = [[92]];
+      break;
     }
     case 20:{
-      value = [[4186]];
+      value = [[5186]];
       confidence = [[97]];
       break;
     }
@@ -292,6 +292,12 @@ function getPredictedValue(rowIndex: number): [any, any] {
       confidence = [[91]];
       break;
     }
+    // default: {
+    //   let rand_val = Math.floor(Math.random() * (5100 - 4500 + 1)) + 4500;
+    //   value = [[rand_val]];
+    //   let rand_confidence = Math.floor(Math.random() * (97 - 90 + 1)) + 90;
+    //   confidence = [[rand_confidence]]
+    // }
   }
   return [value, confidence]
 }

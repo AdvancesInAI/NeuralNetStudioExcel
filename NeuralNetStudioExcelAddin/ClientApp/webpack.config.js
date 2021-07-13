@@ -104,6 +104,11 @@ module.exports = async (env, options) => {
         template: "./src/dialogs/solution-request-submitted.html",
         chunks: ["polyfill", "solution-request-submitted"]
       }),
+      // new HtmlWebpackPlugin({
+      //   filename: "logo.png",
+      //   template: "./src/dialogs/logo.png",
+      //   chunks: ["polyfill", "logo"]
+      // }),
     ],
     devServer: {
       hot: true,

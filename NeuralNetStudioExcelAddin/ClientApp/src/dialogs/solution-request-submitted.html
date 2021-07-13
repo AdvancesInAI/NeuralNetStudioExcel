@@ -11,7 +11,45 @@
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
     <script type="text/javascript" src="popup.js"></script>
   </head>
-  <body style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+  <style>  
+  /* html { background-color: black; } 
+  body { background-color: white; } */
+
+
+  .header {
+    width: 100vw;
+  } 
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+}
+.header h1 {
+  text-align: center;
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+    </style>
+    <script>
+      function closeMe()
+      {
+          window.opener = self;
+          window.close();
+      }
+    </script>
+  <header>
+    <div class="header"  id="container" style="white-space:nowrap" back>
+      <div id="image" style="display:inline;">
+          <img src="/assets/logo.png" alt="AiA" width="80" height="80" style="vertical-align:middle"/>
+      </div>
+      <div id="texts" style="display:inline; white-space:nowrap; text-align: center;"> 
+          <h1>Advances in AI</h1>
+      </div>
+  </div>
+  </header>
+  <body style="margin: 0px; padding: 40px;display:flex;flex-direction:column;align-items:center;justify-content:center">
     <p class="ms-font-xl">Neural Net Studio</p>
     <p class="ms-font-xl">Solution Request</p>
     <p class="ms-font-l">
@@ -20,6 +58,6 @@
         Please copy that ID from the email to the Solution page of the Neural Net Studio Add-in.
     </p>
     <!-- <input id="name-box" type="text"/><br/><br/> -->
-    <button id="ok-button" class="ms-Button">Got it.</button>
+    <button id="ok-button" onclick="closeMe()" class="ms-Button">Got it.</button>
   </body>
 </html>

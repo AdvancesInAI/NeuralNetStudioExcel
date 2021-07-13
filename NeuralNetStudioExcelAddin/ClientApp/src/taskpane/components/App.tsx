@@ -39,7 +39,7 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
   const fetchInitData = async () => {
     const newFormState: IFormState = {
       isBusy: false,
-      appScreen: "solution",
+      appScreen: "dataset",
       isInitCalled: true,
       authStatus: "NO",
       errorMessage: "",

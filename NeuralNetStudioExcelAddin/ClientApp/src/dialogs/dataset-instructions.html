@@ -11,7 +11,34 @@
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
     <script type="text/javascript" src="popup.js"></script>
   </head>
-  <body style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+  <style>  
+    .header {
+      width: 100vw;
+    } 
+  .header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+  }
+  .header h1 {
+    text-align: center;
+    position: relative;
+    top: 18px;
+    left: 10px;
+  }
+      </style>
+    <header>
+      <div class="header"  id="container" style="white-space:nowrap" back>
+        <div id="image" style="display:inline;">
+            <img src="/assets/logo.png" alt="AiA" width="80" height="80" style="vertical-align:middle"/>
+        </div>
+        <div id="texts" style="margin: 60px; padding: 40px;display:inline; white-space:nowrap;"> 
+            <h1>Advances in AI</h1>
+        </div>
+    </div>
+    </header>
+  <body style="margin: 0px; padding: 40px;display:flex;flex-direction:column;align-items:center;justify-content:center">
     <p class="ms-font-xl">Welcome to Neural Net Studio</p>
     <div class="ms-font-l">To create your first solution, we need to know a little about your data.
     
