@@ -13,7 +13,7 @@ export const WelcomePage: React.FC = () => {
 
   return (
     <Stack tokens={{ childrenGap: 10 }}>
-      <div className="center ms-font-xl ms-fontWeight-bold">Welcome to Advance in AI Neural Net Studio</div>
+      <div className="center ms-font-xl ms-fontWeight-bold">Welcome to Advance in AI Insight Engine</div>
       <div className="ms-fontWeight-semibold">If you are already registered to use the API, sign in at:</div>
       <div className="ms-fontWeight-regular">Name: User Name </div>
       <div className="ms-fontWeight-regular">Organisation: Org Name </div>

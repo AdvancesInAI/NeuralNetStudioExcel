@@ -1,4 +1,4 @@
-import { DefaultButton, PrimaryButton, Stack, Checkbox } from "@fluentui/react";
+import { DefaultButton, ActionButton, CommandButton, PrimaryButton, Stack, Checkbox, ColorClassNames } from "@fluentui/react";
 import { TextField } from "@fluentui/react/lib/TextField";
 import * as React from "react";
 import { showNotification } from "../../neural_net_studio/utils"
@@ -6,11 +6,15 @@ import { getTheme } from '@fluentui/react';
 /* global console */
 
 export const SolutionPage: React.FC = () => {
-  const name = "Store 1 Sales";
+  const name = "Daily Sales";
   const solutionUuid = "990f9beb-39e5-4198-925e-0e39cd1d2e31";
   const modelUuid = "53a4a591-2e60-4e13-96c4-f69fd5f1cd84";
   const accuracy = 97.4;
   const selectedRange = "";  
+
+  const onUpdateSolution = () => {
+    // send new actuals to server, add them to dataset, rebuild solution
+  }
 
 const onPredict = () => {
     console.log("onPredict");
@@ -125,7 +129,7 @@ function toggleFeatureImportance(ev?: React.FormEvent<HTMLElement | HTMLInputEle
     <Stack tokens={{ childrenGap: 10 }}>
       <div className="center ms-font-xl ms-fontWeight-bold ms-font-xxl">Solution</div>
       <div className="ms-font-xl ms-fontWeight-semibold">Name: {name}</div>
-      <div className="ms-font-xl ms-fontWeight-semibold" id='model-accuracy'>Accuracy: % {accuracy}</div>
+      <div className="ms-font-xl ms-fontWeight-semibold" id='model-accuracy'>Accuracy: {accuracy} %</div>
       <TextField label="Solution ID:" value={solutionUuid} />
       {/* <div className="ms-Grid" dir="ltr">
         <span className="ms-grid-row"> 
@@ -149,6 +153,17 @@ function toggleFeatureImportance(ev?: React.FormEvent<HTMLElement | HTMLInputEle
       {/* <Dropdown placeholder="Choose worksheets" label="List of worksheets" options={sheetOptions} /> */}
       <br></br>
       <PrimaryButton className="ms-font-l" text="Predict" onClick={onPredict} />
+      <br></br>
+      <br></br>
+      <DefaultButton className={[
+        ColorClassNames.greenBackground,
+    ColorClassNames.blackBorder,
+    ColorClassNames.greenDarkBackgroundHover,
+    ColorClassNames.greenDarkBorderHover,
+    ColorClassNames.white,
+    ColorClassNames.whiteHover,
+    "ms-font-l"
+  ].join(" ")} text="Update Solution" onClick={onUpdateSolution} />
     </Stack>
   );
 };
@@ -165,7 +180,7 @@ let columnColors = {
 function format_fi_column(column: Excel.Range, comments: Excel.CommentCollection, commentAddress: string, featureImportance: any, featureImportanceNote?: string) {
   let columnColor = columnColors[featureImportance];
   column.format.fill.color = columnColor;  
-  column.format.font.color = "white";
+  // column.format.font.color = "white";
   let commentText = `Feature Importance: ${featureImportance}`;
   if (featureImportanceNote != null) {
     commentText = `Feature Importance: ${featureImportance} (${featureImportanceNote})`;
@@ -258,12 +273,12 @@ function getPredictedValue(rowIndex: number): [any, any] {
       break;
     }
     case 25:{
-      value = [[4726]];
+      value = [[0]];
       confidence = [[93]];
       break;
     }
     case 26:{
-      value = [[0]];
+      value = [[4735]];
       confidence = [[99]];
       break;
     }
@@ -277,18 +292,18 @@ function getPredictedValue(rowIndex: number): [any, any] {
       confidence = [[90]];
       break;
     }
-    case 29:{
-      value = [[4186]];
+    case 29:{ //30
+      value = [[5087]];
       confidence = [[97]];
       break;
     }
-    case 30:{
-      value = [[4057]];
+    case 30:{ //31
+      value = [[5502]];
       confidence = [[92]];
       break;
     }
     case 31:{
-      value = [[3979]];
+      value = [[5793]];
       confidence = [[91]];
       break;
     }

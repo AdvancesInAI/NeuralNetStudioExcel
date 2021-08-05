@@ -4,7 +4,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Neural Net Studio"/>
+  <DisplayName DefaultValue="Insight Engine"/>
   <Description DefaultValue="A template to get started."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/logoORIG64T.jpg"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/logoORIG64T.jpg"/>
@@ -72,13 +72,13 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Start getting insights with Neural Net Studio!"/>
+        <bt:String id="GetStarted.Title" DefaultValue="Start getting insights with Insight Engine!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Neural Net Studio"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Insight Engine"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Welcome to AI for Excel. Go to the HOME tab and click the 'Neural Net Studio' button to get started."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to open Neural Net Studio"/>
+        <bt:String id="GetStarted.Description" DefaultValue="Welcome to AI for Excel. Go to the HOME tab and click the 'Insight Engine' button to get started."/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to open Insight Engine"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
