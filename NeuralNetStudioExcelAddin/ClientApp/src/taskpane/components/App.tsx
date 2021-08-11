@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "./Header";
+import { NavBar } from "./navBar";
 import { WelcomePage } from "./WelcomePage";
 import Progress from "./Progress";
 import { setFormState } from "../store/formStore";
@@ -86,7 +87,8 @@ export const App: React.FC<AppProps> = (_prop: AppProps) => {
   return (
     <div>
       <div className="sidebar top">
-        <Header />
+        <Header /> 
+        {/* <NavBar /> */}
       </div>
       <div className="sidebar content">{screen}</div>
       {formState.isBusy && (

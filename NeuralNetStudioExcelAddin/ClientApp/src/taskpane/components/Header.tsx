@@ -1,3 +1,4 @@
+import { Nav } from "office-ui-fabric-react/lib/Nav";
 import { ContextualMenu, IconButton, MessageBar, MessageBarType } from "@fluentui/react";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -92,8 +93,38 @@ export const Header: React.FC = () => {
 
   return (
     <div className="header">
+       <nav class="ms-tab-bar__header ms-bgColor-themeLighter">
+        <div class="ms-tab-bar__header--center ms-font-m ms-fontWeight-light ms-fontColor-themePrimary">
+            <div class="ms-tab-bar__header--center"></div>
+            <button class="ms-tab-bar__header--centeritems ms-font-m ms-fontWeight-light ms-fontColor-themePrimary">
+                <i class="ms-font-xl ms-Icon ms-Icon--home ms-fontColor-themePrimary"></i>
+                <div class="ms-tab-bar__header--centeritemstext">
+                    Home
+                </div>
+            </button>
+            <button class="ms-tab-bar__header--centeritems ms-font-m ms-fontWeight-light ms-fontColor-themePrimary">
+                <i class="ms-font-xl ms-Icon ms-Icon--gear ms-fontColor-themePrimary"></i>
+                <div class="ms-tab-bar__header--centeritemstext">
+                    Settings
+                </div>
+            </button>
+            <button class="ms-tab-bar__header--centeritems ms-font-m ms-fontWeight-light ms-fontColor-themePrimary">
+                <i class="ms-font-xl ms-Icon ms-Icon--star ms-fontColor-themePrimary"></i>
+                <div class="ms-tab-bar__header--centeritemstext">
+                    Favorites
+                </div>
+            </button>
+            <button class="ms-tab-bar__header--centeritems ms-font-m ms-fontWeight-light ms-fontColor-themePrimary">
+                <i class="ms-font-xl ms-Icon ms-Icon--person ms-fontColor-themePrimary"></i>
+                <div class="ms-tab-bar__header--centeritemstext">
+                    Account
+                </div>
+            </button>
+            <div class="ms-tab-bar__header--center"></div>
+        </div>
+    </nav>
       <div ref={linkRef} className="top-left">
-        <IconButton
+        {/* <IconButton
           iconProps={{ iconName: "CollapseMenu" }}
           onClick={onShowContextualMenu}
           style={{ paddingLeft: 0, borderLeftWidth: 0 }}
@@ -105,7 +136,20 @@ export const Header: React.FC = () => {
           onItemClick={onHideContextualMenu}
           onDismiss={onHideContextualMenu}
           coverTarget={false}
-        />
+        /> */
+      //   <Nav
+      //   groups={[
+      //     {
+      //       links: [
+      //         { name: 'Home', key: 'Home', url: '/' },
+      //         { name: 'Activity', key: 'Activity', url: '/activity' },
+      //         { name: 'News', key: 'News', url: '/news' },
+      //         { name: 'Documents', key: 'Documents', url: '/documents' }
+      //       ]
+      //     }
+      //   ]}
+      // />
+        }
       </div>
       {/* <div className="header-text">{_prop.message}</div> */}
       {/* <a href="#" onClick={onGoHome}>

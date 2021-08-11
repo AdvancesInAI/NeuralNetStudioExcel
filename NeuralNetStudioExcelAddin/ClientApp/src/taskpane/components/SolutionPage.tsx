@@ -197,8 +197,20 @@ function clear_column_formating(column: Excel.Range, comments: Excel.CommentColl
 function getPredictedValue(rowIndex: number): [any, any] {
   let value = [[ Math.floor(Math.random() * (5100 - 4500 + 1)) + 4500]];
   let confidence = [[Math.floor(Math.random() * (97 - 90 + 1)) + 90]];
-  switch(rowIndex)
+  switch(rowIndex+1)
   {
+    case 7:{
+      value = [[3726]];
+      confidence = [[93]];
+      break;
+    case 8:{
+      value = [[4189]];
+      confidence = [[94]];
+      break;
+    case 9:{
+      value = [[4892]];
+      confidence = [[92]];
+      break;
     case 10:{
       value = [[4726]];
       confidence = [[93]];
@@ -209,28 +221,28 @@ function getPredictedValue(rowIndex: number): [any, any] {
       break;
     }
   case 12:{
-    value = [[0]];
-    confidence = [[99]];
+    value = [[4892]];
+    confidence = [[90]];
     break;
   }
     case 13:{
-      value = [[3542]];
-      confidence = [[90]];
+      value = [[5242]];
+      confidence = [[95]];
       break;
     }
     case 14:{
-      value = [[4186]];
-      confidence = [[97]];
+      value = [[5586]];
+      confidence = [[94]];
       break;
     }
     case 15:{
-      value = [[4057]];
+      value = [[5629]];
       confidence = [[92]];
       break;
     }
     case 16:{
-      value = [[4726]];
-      confidence = [[93]];
+      value = [[]];
+      confidence = [[98]];
       break;
     case 17:{
       value = [[5147]];
