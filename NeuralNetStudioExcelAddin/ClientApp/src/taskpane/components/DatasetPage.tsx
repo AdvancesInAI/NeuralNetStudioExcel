@@ -49,8 +49,8 @@ export const DatasetPage: React.FC = () => {
   ]
 
   const worksheetColumns: IDropdownOption[] = [
-    { key: "Store", text: "Store" },
-    { key: "DayOfWeek", text: "DayOfWeek" },
+    // { key: "Store", text: "Store" },
+    // { key: "DayOfWeek", text: "DayOfWeek" },
     { key: "Date", text: "Date" },
     { key: "Customers", text: "Customers" },
     { key: "Open", text: "Open" },
@@ -120,7 +120,7 @@ export const DatasetPage: React.FC = () => {
       <text className="ms-font-l ms-fontWeight-semibold">External Datasets: {name}</text>
       <PrimaryButton className="ms-font-m" text="Add"></PrimaryButton>
       </span>
-      <table border>
+      <table>
         <thead>
           <tr>
             <th>Id</th>

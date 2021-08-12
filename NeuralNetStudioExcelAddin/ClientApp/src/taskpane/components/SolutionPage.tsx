@@ -1,4 +1,4 @@
-import { DefaultButton, ActionButton, CommandButton, PrimaryButton, Stack, Checkbox, ColorClassNames } from "@fluentui/react";
+import { DefaultButton, ActionButton, CommandButton, PrimaryButton, Stack, Checkbox, ColorClassNames, values } from "@fluentui/react";
 import { TextField } from "@fluentui/react/lib/TextField";
 import * as React from "react";
 import { showNotification } from "../../neural_net_studio/utils"
@@ -195,26 +195,27 @@ function clear_column_formating(column: Excel.Range, comments: Excel.CommentColl
 }
 
 function getPredictedValue(rowIndex: number): [any, any] {
-  let value = [[ Math.floor(Math.random() * (5100 - 4500 + 1)) + 4500]];
+  let value = [[Math.floor(Math.random() * (5100 - 4500 + 1)) + 4500]];
   let confidence = [[Math.floor(Math.random() * (97 - 90 + 1)) + 90]];
-  switch(rowIndex)
+  switch(rowIndex+1)
   {
     case 10:{
       value = [[4726]];
       confidence = [[93]];
       break;
+    }
     case 11:{
       value = [[5147]];
       confidence = [[92]];
       break;
     }
-  case 12:{
-    value = [[0]];
-    confidence = [[99]];
-    break;
-  }
+    case 12:{
+      value = [[0]];
+      confidence = [[99]];
+      break;
+    }
     case 13:{
-      value = [[3542]];
+      value = [[4542]];
       confidence = [[90]];
       break;
     }
@@ -229,17 +230,18 @@ function getPredictedValue(rowIndex: number): [any, any] {
       break;
     }
     case 16:{
-      value = [[4726]];
-      confidence = [[93]];
+      value = [[]];
+      confidence = [[96]];
       break;
+    }
     case 17:{
-      value = [[5147]];
+      value = [[5047]];
       confidence = [[92]];
       break;
     }
     case 18:{
-      value = [[0]];
-      confidence = [[99]];
+      value = [[4167]];
+      confidence = [[92]];
       break;
     } 
     case 19:{
@@ -248,23 +250,23 @@ function getPredictedValue(rowIndex: number): [any, any] {
       break;
     }
     case 20:{
-      value = [[5186]];
+      value = [[4199]];
       confidence = [[97]];
       break;
     }
     case 21:{
-      value = [[4057]];
+      value = [[5186]];
       confidence = [[92]];
       break;
     }
     case 22:{
-      value = [[4186]];
+      value = [[4886]];
       confidence = [[97]];
       break;
     }
     case 23:{
-      value = [[4057]];
-      confidence = [[92]];
+      value = [[]];
+      confidence = [[96]];
       break;
     }
     case 24:{
@@ -314,8 +316,6 @@ function getPredictedValue(rowIndex: number): [any, any] {
     //   confidence = [[rand_confidence]]
     // }
   }
-  return [value, confidence]
+  console.log(`Row: ${rowIndex+1} value: ${value} confidence: ${confidence}`);
+  return [value, confidence];
 }
-
-
-
